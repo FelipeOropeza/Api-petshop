@@ -1,5 +1,6 @@
 import express from "express";
 import conectarDataBase from "./config/dbConnect.js";
+import cachorro from "./models/Cachorro.js";
 
 const conexao = await conectarDataBase();
 
@@ -14,29 +15,30 @@ conexao.once("open", () => {
 const app = express();
 app.use(express.json());
 
-const cachorros = [
-  {
-    id: 1,
-    raca: "Poodle",
-  },
-  {
-    id: 2,
-    raca: "Labrador",
-  },
-];
+// const cachorros = [
+//   {
+//     id: 1,
+//     raca: "Poodle",
+//   },
+//   {
+//     id: 2,
+//     raca: "Labrador",
+//   },
+// ];
 
-function buscarCachorro(id) {
-  return cachorros.findIndex((cachorro) => {
-    return cachorro.id === Number(id);
-  });
-}
+// function buscarCachorro(id) {
+//   return cachorros.findIndex((cachorro) => {
+//     return cachorro.id === Number(id);
+//   });
+// }
 
 app.get("/", (req, res) => {
   res.status(200).send("Curso de Node.js");
 });
 
-app.get("/cachorros", (req, res) => {
-  res.status(200).json(cachorros);
+app.get("/cachorros", async (req, res) => {
+  const listaCachorros = await cachorro.find({});
+  res.status(200).json(listaCachorros);
 });
 
 app.get("/cachorros/:id", (req, res) => {
