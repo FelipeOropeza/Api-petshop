@@ -32,9 +32,9 @@ app.use(express.json());
 //   });
 // }
 
-app.get("/", (req, res) => {
-  res.status(200).send("Curso de Node.js");
-});
+// app.get("/", (req, res) => {
+//   res.status(200).send("Curso de Node.js");
+// });
 
 // app.get("/cachorros", async (req, res) => {
 //   const listaCachorros = await cachorro.find({});
@@ -46,10 +46,10 @@ app.get("/cachorros/:id", (req, res) => {
   res.status(200).json(cachorros[index]);
 });
 
-app.post("/cachorros", (req, res) => {
-  cachorros.push(req.body);
-  res.status(201).send("Cachorro inserido com sucesso.");
-});
+// app.post("/cachorros", (req, res) => {
+//   cachorros.push(req.body);
+//   res.status(201).send("Cachorro inserido com sucesso.");
+// });
 
 app.put("/cachorros/:id", (req, res) => {
   const index = buscarCachorro(req.params.id);
