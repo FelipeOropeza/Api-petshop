@@ -1,10 +1,8 @@
-import { request } from "express";
-import { ObjectId } from "mongodb";
-import mongoose from "mongoose";
+import mongoose, { version } from "mongoose";
 
 const cachorroSchema = new mongoose.Schema(
   {
-    id: { type: mongoose.Schema.Types.ObjectId },
+    _id: { type: mongoose.Schema.Types.ObjectId },
     nome: { type: String, required: true },
     raca: { type: String },
     idade: { type: Number },
@@ -13,4 +11,5 @@ const cachorroSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const cachorro = mongoose.model("cachorros", cachorroSchema)
+const cachorro = mongoose.model("cachorros", cachorroSchema);
+export default cachorro;
