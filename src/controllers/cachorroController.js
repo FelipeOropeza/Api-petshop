@@ -1,4 +1,4 @@
-import cachorro from "./models/Cachorro.js";
+import cachorro from "../models/Cachorro.js";
 
 class CachorroController {
   static async listaCachorros(req, res) {
