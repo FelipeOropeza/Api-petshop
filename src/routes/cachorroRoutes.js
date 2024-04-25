@@ -4,6 +4,8 @@ import CachorroController from "../controllers/cachorroController.js";
 const routes = express.Router();
 
 routes.get("/cachorros", CachorroController.listaCachorros);
+routes.get("/cachorros/busca", CachorroController.listaCachorroPorRaca);
+routes.get("/cachorros/busca2", CachorroController.listaCachorroPorIdade);
 routes.get("/cachorros/:id", CachorroController.buscarCachorroPorId);
 routes.post("/cachorros", CachorroController.cadastrarCachorro);
 routes.put("/cachorros/:id", CachorroController.atualizarCachorro);
