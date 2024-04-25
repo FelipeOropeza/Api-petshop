@@ -1,4 +1,4 @@
-import { tutor, tutorSchema } from "../models/Tutor.js";
+import { tutor } from "../models/Tutor.js";
 
 class TutorController {
   static async listarTutores(req, res) {
